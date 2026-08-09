@@ -6,7 +6,7 @@ The main idea of this project is to use **RAG (Retrieval-Augmented Generation)**
 
 I developed this project as part of my **Celebal Technologies Excellence Internship Program**.
 
----
+
 
 ## 📌 What the Project Does
 
@@ -36,7 +36,7 @@ Answer:
 
 The question and its answer are stored together in the database.
 
----
+
 
 ## 🎯 Main Objective
 
@@ -54,7 +54,6 @@ Ask → What safety features are available?
 
 The system retrieves the relevant information and generates an answer.
 
----
 
 ## 🔄 How the Application Works
 
@@ -84,7 +83,7 @@ MySQL Database
 Show in User Activity
 ```
 
----
+
 
 ## 🤖 RAG Approach
 
@@ -114,7 +113,7 @@ The system retrieves information related to the Hyundai Creta and then uses that
 
 This helps reduce irrelevant answers from other vehicle documents.
 
----
+
 
 ## 🚘 Vehicle Selection
 
@@ -145,7 +144,7 @@ Hyundai
 
 This data is loaded dynamically using API calls.
 
----
+
 
 ## 💬 Question Answering
 
@@ -167,7 +166,7 @@ The question is sent to the backend through the chat API.
 
 The RAG pipeline retrieves the relevant information and returns the generated answer to the dashboard.
 
----
+
 
 ## 📝 Question and Answer History
 
@@ -196,7 +195,7 @@ in the same history record.
 
 When the user clicks a previous question, the application loads its saved answer.
 
----
+
 
 # 🗄️ MySQL Database
 
@@ -241,7 +240,7 @@ answer
 created_at
 ```
 
----
+
 
 # 🛠️ Technologies Used
 
@@ -275,7 +274,7 @@ created_at
 * GitHub
 * MySQL
 
----
+
 
 # 📂 Project Structure
 
@@ -318,7 +317,7 @@ Drive Wise Metadata Aware Automative RAG Assistant/
 
 The exact structure may vary depending on the final project files.
 
----
+
 
 # 🔌 Main APIs
 
@@ -397,7 +396,6 @@ GET /api/history
 
 Gets the user's previous questions and answers from MySQL.
 
----
 
 # 🔐 Authentication
 
@@ -407,7 +405,7 @@ The dashboard checks whether the user is logged in before loading the applicatio
 
 The application also uses sessions to maintain the logged-in user.
 
----
+
 
 # ⚙️ How to Run the Project
 
@@ -423,7 +421,6 @@ Go inside the project folder:
 cd "Drive Wise Metadata Aware Automative RAG Assistant"
 ```
 
----
 
 ## 2. Create Virtual Environment
 
@@ -437,7 +434,6 @@ Activate it on Windows:
 venv\Scripts\activate
 ```
 
----
 
 ## 3. Install Required Libraries
 
@@ -447,7 +443,6 @@ If `requirements.txt` is available:
 pip install -r requirements.txt
 ```
 
----
 
 ## 4. Configure MySQL
 
@@ -461,7 +456,6 @@ CREATE DATABASE drive_wise;
 
 Then configure the database connection in the backend.
 
----
 
 ## 5. Configure Environment Variables
 
@@ -483,7 +477,6 @@ API_KEY=your_api_key
 
 Do not upload the `.env` file to GitHub.
 
----
 
 ## 6. Run the Application
 
@@ -499,7 +492,7 @@ Then open the application in the browser:
 http://127.0.0.1:5000
 ```
 
----
+
 
 # 📋 Example
 
@@ -557,7 +550,7 @@ in the MySQL history table.
 
 The question then appears under **Your Activity**.
 
----
+
 
 # 🌱 Future Improvements
 
@@ -573,7 +566,6 @@ Some features that can be added in the future are:
 * Improved conversational memory
 * Mobile-friendly application
 
----
 
 # 👩‍💻 About the Project
 
@@ -593,7 +585,6 @@ The project helped me work practically with:
 
 The main learning from this project was understanding how an AI-based application can be connected with a real database and web interface to create a complete working application.
 
----
 
 # 📄 License
 
