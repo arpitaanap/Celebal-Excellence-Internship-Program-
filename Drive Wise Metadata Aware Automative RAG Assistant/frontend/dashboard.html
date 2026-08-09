@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Drive Wise | Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="header-left">
+
+            <div class="dashboard-logo">
+                DW
+            </div>
+
+            <div>
+
+                <h1 class="dashboard-title">
+                    Drive Wise
+                </h1>
+
+                <p class="dashboard-subtitle">
+                    Automotive RAG Assistant
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div class="user-info">
+
+                <div class="user-avatar">
+
+                    <span id="userInitial">
+                        U
+                    </span>
+
+                </div>
+
+
+                <div class="user-details">
+
+                    <span class="welcome-text">
+                        Welcome
+                    </span>
+
+                    <strong id="userName">
+                        User
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TWO COLUMN LAYOUT
+        ================================================== -->
+
+        <div class="dashboard-layout">
+
+
+            <!-- =============================================
+                 LEFT SIDE
+            ============================================== -->
+
+            <div class="dashboard-content">
+
+
+                <!-- =========================================
+                     INTRO
+                ========================================== -->
+
+                <section class="dashboard-intro">
+
+                    <span class="section-label">
+                        VEHICLE KNOWLEDGE ASSISTANT
+                    </span>
+
+
+                    <h2>
+                        Ask about your car
+                    </h2>
+
+
+                    <p>
+                        Select a vehicle and ask a question
+                        about its official brochure information.
+                    </p>
+
+                </section>
+
+
+
+                <!-- =========================================
+                     VEHICLE SELECTION
+                ========================================== -->
+
+                <section class="dashboard-card">
+
+
+                    <div class="card-header">
+
+                        <div class="card-icon">
+                            🚗
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Select Vehicle
+                            </h3>
+
+                            <p>
+                                Choose a brand and model.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="vehicle-grid">
+
+
+                        <!-- BRAND -->
+
+                        <div class="input-group">
+
+                            <label for="brandSelect">
+                                Brand
+                            </label>
+
+
+                            <select
+                                id="brandSelect"
+                            >
+
+                                <option value="">
+                                    Select Brand
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- MODEL -->
+
+                        <div class="input-group">
+
+                            <label for="carSelect">
+                                Model
+                            </label>
+
+
+                            <select
+                                id="carSelect"
+                                disabled
+                            >
+
+                                <option value="">
+                                    Select Model
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================
+                     QUESTION
+                ========================================== -->
+
+                <section class="dashboard-card">
+
+
+                    <div class="card-header">
+
+                        <div class="card-icon question-icon">
+                            ?
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Ask a question
+                            </h3>
+
+
+                            <p>
+                                Ask something specific about
+                                the selected vehicle.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="input-group">
+
+                        <label for="questionInput">
+                            Your question
+                        </label>
+
+
+                        <textarea
+                            id="questionInput"
+                            maxlength="1000"
+                            rows="5"
+                            placeholder="Example: What is the engine capacity of this car?"
+                        ></textarea>
+
+
+                        <div class="question-footer">
+
+                            <span>
+                                Ask a clear question for a
+                                more precise answer.
+                            </span>
+
+
+                            <span id="characterCount">
+                                0 / 1000
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        id="questionMessage"
+                        class="message"
+                    ></div>
+
+
+
+                    <!-- ASK BUTTON -->
+
+                    <button
+                        type="button"
+                        id="askBtn"
+                        class="ask-btn"
+                    >
+
+                        <span id="askButtonText">
+                            Ask Drive Wise
+                        </span>
+
+
+                        <span
+                            id="askSpinner"
+                            class="spinner hidden"
+                        ></span>
+
+                    </button>
+
+                </section>
+
+
+
+                <!-- =========================================
+                     ANSWER
+                ========================================== -->
+
+                <section
+                    id="answerCard"
+                    class="dashboard-card answer-card hidden"
+                >
+
+
+                    <div class="answer-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                DRIVE WISE ANSWER
+                            </span>
+
+
+                            <h3>
+                                Response
+                            </h3>
+
+                        </div>
+
+
+                        <span
+                            id="answerVehicle"
+                            class="answer-vehicle"
+                        ></span>
+
+                    </div>
+
+
+                    <div
+                        id="answerContent"
+                        class="answer-content"
+                    ></div>
+
+                </section>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 RIGHT SIDE — HISTORY
+            ============================================== -->
+
+            <aside class="history-panel">
+
+
+                <div class="history-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            YOUR ACTIVITY
+                        </span>
+
+
+                        <h2>
+                            Previous questions
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="refreshHistoryBtn"
+                        class="history-refresh-btn"
+                        title="Refresh history"
+                    >
+                        ↻
+                    </button>
+
+                </div>
+
+
+                <p class="history-description">
+                    Your previous questions will appear here.
+                </p>
+
+
+                <div
+                    id="historyList"
+                    class="history-list"
+                >
+
+                    <div class="history-empty">
+
+                        <div class="history-empty-icon">
+                            +
+                        </div>
+
+
+                        <p>
+                            No questions yet.
+                        </p>
+
+
+                        <span>
+                            Your previous questions will
+                            appear here.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="dashboard-footer">
+
+        <span>
+            Drive Wise
+        </span>
+
+
+        <span>
+            Metadata-Aware Automotive RAG Assistant
+        </span>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="/js/dashboard.js"
+    ></script>
+
+
+</body>
+
+</html>

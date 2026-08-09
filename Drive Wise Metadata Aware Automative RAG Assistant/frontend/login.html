@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Drive Wise - Metadata-Aware Automotive RAG Assistant"
+    >
+
+    <title>Login | Drive Wise</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         LOGIN PAGE
+    ====================================================== -->
+
+    <main class="auth-container">
+
+        <!-- =================================================
+             BRAND SECTION
+        ================================================== -->
+
+        <section class="auth-brand-panel">
+
+            <div class="brand-logo">
+
+                <div class="brand-logo-icon">
+                    DW
+                </div>
+
+                <div class="brand-logo-text">
+                    Drive Wise
+                </div>
+
+            </div>
+
+
+            <div class="auth-brand-content">
+
+                <p class="brand-label">
+                    AUTOMOTIVE RAG ASSISTANT
+                </p>
+
+                <h1>
+                    Smarter answers
+                    for every drive.
+                </h1>
+
+                <p class="brand-description">
+                    Select your vehicle and ask questions
+                    using information retrieved from
+                    official vehicle brochures.
+                </p>
+
+
+                <div class="auth-features">
+
+                    <div class="auth-feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Vehicle-specific answers
+                        </span>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Brochure-based information
+                        </span>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <span class="feature-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Fast AI-powered search
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auth-brand-footer">
+
+                Drive Wise
+
+                <span>•</span>
+
+                Metadata-Aware Automotive RAG Assistant
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOGIN SECTION
+        ================================================== -->
+
+        <section class="auth-form-panel">
+
+            <div class="auth-form-wrapper">
+
+                <!-- Header -->
+
+                <div class="auth-form-header">
+
+                    <div class="mobile-logo">
+                        DW
+                    </div>
+
+                    <h2>
+                        Welcome back
+                    </h2>
+
+                    <p>
+                        Sign in to continue to Drive Wise.
+                    </p>
+
+                </div>
+
+
+                <!-- Login Form -->
+
+                <form
+                    class="auth-form"
+                    id="loginForm"
+                >
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Login Button -->
+
+                    <button
+                        type="submit"
+                        class="auth-button"
+                        id="loginButton"
+                    >
+
+                        <span id="loginButtonText">
+                            Sign in
+                        </span>
+
+                        <span
+                            id="loginSpinner"
+                            class="button-spinner hidden"
+                        ></span>
+
+                    </button>
+
+
+                    <!-- Message -->
+
+                    <div
+                        id="loginMessage"
+                        class="auth-message"
+                        role="alert"
+                    ></div>
+
+                </form>
+
+
+                <!-- Register -->
+
+                <div class="auth-footer">
+
+                    <span>
+                        Don't have an account?
+                    </span>
+
+                    <a href="/register">
+                        Create an account
+                    </a>
+
+                </div>
+
+
+                <!-- Small Information -->
+
+                <div class="auth-note">
+
+                    <span>🔒</span>
+
+                    <span>
+                        Your account keeps your
+                        Drive Wise history private.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         AUTH JAVASCRIPT
+    ====================================================== -->
+
+    <script src="/js/auth.js"></script>
+
+</body>
+
+</html>

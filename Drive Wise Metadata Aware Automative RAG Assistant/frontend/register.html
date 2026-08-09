@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account | Drive Wise</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-container">
+
+        <!-- =================================================
+             LEFT PANEL
+        ================================================== -->
+
+        <div class="auth-brand-panel">
+
+            <div class="brand-logo">
+
+                <div class="brand-logo-icon">
+                    🚗
+                </div>
+
+                <div class="brand-logo-text">
+                    Drive Wise
+                </div>
+
+            </div>
+
+
+            <div class="auth-brand-content">
+
+                <h1>
+                    Your vehicle
+                    knowledge hub.
+                </h1>
+
+                <p>
+                    Create your account and explore
+                    vehicle information using our
+                    metadata-aware automotive assistant.
+                </p>
+
+
+                <ul class="auth-features">
+
+                    <li>
+                        <span>✓</span>
+                        Search vehicle brochures
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Ask natural-language questions
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Get AI-generated answers
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             REGISTER FORM
+        ================================================== -->
+
+        <div class="auth-form-panel">
+
+            <form
+                class="auth-form"
+                id="registerForm"
+            >
+
+                <div class="auth-form-header">
+
+                    <h2>
+                        Create your account
+                    </h2>
+
+                    <p>
+                        Enter your details to get started.
+                    </p>
+
+                </div>
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-button"
+                    id="registerButton"
+                >
+                    Create account
+                </button>
+
+
+                <div
+                    id="registerMessage"
+                    class="auth-message"
+                ></div>
+
+
+                <div class="auth-footer">
+
+                    Already have an account?
+
+                    <a href="/">
+                        Sign in
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document
+    .getElementById("registerForm")
+    .addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById(
+                    "name"
+                ).value.trim();
+
+            const email =
+                document.getElementById(
+                    "email"
+                ).value.trim();
+
+            const password =
+                document.getElementById(
+                    "password"
+                ).value;
+
+            const confirmPassword =
+                document.getElementById(
+                    "confirmPassword"
+                ).value;
+
+
+            const button =
+                document.getElementById(
+                    "registerButton"
+                );
+
+            const message =
+                document.getElementById(
+                    "registerMessage"
+                );
+
+
+            message.textContent = "";
+
+
+            if (password !== confirmPassword) {
+
+                message.className =
+                    "auth-message error";
+
+                message.textContent =
+                    "Passwords do not match.";
+
+                return;
+
+            }
+
+
+            button.disabled = true;
+
+            button.textContent =
+                "Creating account...";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/register",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            credentials: "include",
+
+                            body: JSON.stringify({
+
+                                name: name,
+
+                                email: email,
+
+                                password: password
+
+                            })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok ||
+                    !data.success) {
+
+                    throw new Error(
+                        data.message ||
+                        data.error ||
+                        "Registration failed."
+                    );
+
+                }
+
+
+                message.className =
+                    "auth-message success";
+
+                message.textContent =
+                    "Account created successfully. Redirecting...";
+
+
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            "/";
+
+                    },
+                    800
+                );
+
+
+            } catch (error) {
+
+                message.className =
+                    "auth-message error";
+
+                message.textContent =
+                    error.message;
+
+            } finally {
+
+                button.disabled = false;
+
+                button.textContent =
+                    "Create account";
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>
